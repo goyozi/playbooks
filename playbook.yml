@@ -131,6 +131,10 @@
         update: no
       become: yes
       become_user: grzegorzz
+    - name: Create .config directory
+      file: path=/home/grzegorzz/.config state=directory
+      become: yes
+      become_user: grzegorzz
     - name: Configure i3
       file:
         src: '/home/grzegorzz/projects/dotfiles/i3'
