@@ -74,7 +74,7 @@
         password: "{{ 'changeme' | password_hash('sha512')  }}"
         update_password: on_create
         shell: /usr/bin/fish
-        groups: tty,audio,video,network,wheel
+        groups: tty,audio,video,network,wheel,docker
         append: yes
         state: present
     - name: Install package-query
