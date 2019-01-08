@@ -21,6 +21,10 @@
       pacman: name=alsa-utils state=present
     - name: Unmute Master Volume
       command: amixer sset Master unmute
+    - name: Install PulseAudio
+      pacman: name=pulseaudio-alsa state=present
+    - name: Install pavucontrol
+      pacman: name=pavucontrol state=present
     - name: Install Xorg
       pacman: name=xorg state=present
     - name: Install xinit
