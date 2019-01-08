@@ -120,6 +120,14 @@
         content: |
           #!/bin/sh
           python /home/grzegorzz/tools/pomodorod/pomodoro.py "$@"
+    - name: Make pomodorod executable
+       file:
+         src: '/usr/bin/pomodorod'
+         mode: a+x
+    - name: Make pomodoro executable
+       file:
+         src: '/usr/bin/pomodoro'
+         mode: a+x
     - name: Create projects directory
       file: path=/home/grzegorzz/projects state=directory
       become: yes
