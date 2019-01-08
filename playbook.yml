@@ -182,7 +182,11 @@
         dest: '/home/grzegorzz/.fehbg'
         content: |
           #!/bin/sh
-          feh --bg-fill '/home/grzegorzz/projects/dotfiles/wallpaper.jpg'
+          feh --bg-tile '/home/grzegorzz/projects/dotfiles/tile.png'
       become: yes
       become_user: grzegorzz
+    - name: Make wallpaper script executable
+       file:
+         src: '/home/grzegorzz/.fehbg'
+         mode: u+x
 
