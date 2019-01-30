@@ -198,7 +198,25 @@
       become: yes
       become_user: grzegorzz
     - name: Make wallpaper script executable
-       file:
-         src: '/home/grzegorzz/.fehbg'
-         mode: u+x
-
+      file:
+        src: '/home/grzegorzz/.fehbg'
+        mode: u+x
+    - name: Disable embedded bitmaps for all fonts
+      file:
+        src: '/etc/fonts/conf.avail/70-no-bitmaps.conf'
+        dest: '/etc/fonts/conf.d/70-no-bitmaps.conf'
+        state: link
+    - name: Enable subpixel RGB rendering 
+      file:
+        src: '/etc/fonts/conf.avail/10-sub-pixel-rgb.conf'
+        dest: '/etc/fonts/conf.d/10-sub-pixel-rgb.conf'
+        state: link
+    - name: Enable LCD filter 
+      file:
+        src: '/etc/fonts/conf.avail/11-lcdfilter-default.conf'
+        dest: '/etc/fonts/conf.d/11-lcdfilter-default.conf'
+        state: link
+    - name: Copy default font config
+      copy:
+        src: 'local.conf'
+        dest: '/etc/fonts/local.conf'
