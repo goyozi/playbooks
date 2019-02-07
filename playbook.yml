@@ -125,13 +125,13 @@
           #!/bin/sh
           python /home/grzegorzz/tools/pomodorod/pomodoro.py "$@"
     - name: Make pomodorod executable
-       file:
-         src: '/usr/bin/pomodorod'
-         mode: a+x
+      file:
+        path: '/usr/bin/pomodorod'
+        mode: a+x
     - name: Make pomodoro executable
-       file:
-         src: '/usr/bin/pomodoro'
-         mode: a+x
+      file:
+        path: '/usr/bin/pomodoro'
+        mode: a+x
     - name: Create projects directory
       file: path=/home/grzegorzz/projects state=directory
       become: yes
@@ -199,7 +199,7 @@
       become_user: grzegorzz
     - name: Make wallpaper script executable
       file:
-        src: '/home/grzegorzz/.fehbg'
+        path: '/home/grzegorzz/.fehbg'
         mode: u+x
     - name: Disable embedded bitmaps for all fonts
       file:
